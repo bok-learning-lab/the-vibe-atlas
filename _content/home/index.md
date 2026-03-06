@@ -35,7 +35,7 @@ say you ask a chat model to write a function that makes an API call to an LLM. t
 so you start adding **context**. you paste in the API documentation. you include an example from your own codebase. you specify the library version. now the input string isn't just your question -- it's your question plus all the relevant information the model needs to get the answer right.
 
 > *"good context engineering means finding the **smallest possible** set of **high-signal tokens** that maximize the likelihood of some desired outcome."*
-> -- Anthropic, "Building Effective Agents"
+> -- [Anthropic, "Building Effective Agents"](https://www.anthropic.com/engineering/building-effective-agents)
 
 this is **context engineering**: the practice of curating what goes into the model's input window so that what comes out is actually useful. the more relevant context you provide -- documentation, code samples, constraints, style preferences -- the less the model has to guess, and the more deterministic the output becomes.
 
@@ -43,7 +43,7 @@ this is **context engineering**: the practice of curating what goes into the mod
   a bare prompt:
   ┌──────────────────────────────────────────────────────┐
   │▓▓▓▓▓│░░│▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒│  the model guesses
-  │ sys  │u │              AI output (~30K)              │  about everything
+  │ sys  │user │              AI output              │  about everything
   └──────────────────────────────────────────────────────┘
 
   rich context:
