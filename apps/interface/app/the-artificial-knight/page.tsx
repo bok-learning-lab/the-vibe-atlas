@@ -227,22 +227,24 @@ rich context:
           </div>
         </section>
 
-        {/* talk notes image */}
+        {/* talk notes image -- sidebar style */}
         <section className="mx-auto max-w-3xl px-4 pb-10">
-          <div className="border border-border/30 overflow-hidden">
-            <div className="relative aspect-[4/3]">
-              <Image
-                src="/images/calvino-talk-notes.jpg"
-                alt="handwritten notes from the italian studies department talk on calvino"
-                fill
-                className="object-cover opacity-85 hover:opacity-100 transition-opacity"
-                sizes="(max-width: 768px) 100vw, 768px"
-              />
+          <div className="flex justify-end">
+            <div className="w-full max-w-[280px]">
+              <div className="border border-border/30 overflow-hidden">
+                <Image
+                  src="/images/calvino-talk-notes.jpg"
+                  alt="handwritten notes from the italian studies department talk on calvino"
+                  width={560}
+                  height={800}
+                  className="w-full h-auto opacity-85 hover:opacity-100 transition-opacity"
+                />
+              </div>
+              <p className="text-[10px] text-muted-foreground mt-3 tracking-wide italic">
+                mw&apos;s notes from the 20260309 talk
+              </p>
             </div>
           </div>
-          <p className="text-[10px] text-muted-foreground mt-3 tracking-wide italic">
-            mw&apos;s notes from the 20260309 talk
-          </p>
         </section>
 
         {/* bank of operations */}
