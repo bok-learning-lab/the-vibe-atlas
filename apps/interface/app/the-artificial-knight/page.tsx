@@ -79,6 +79,35 @@ export default function TheArtificialKnightPage() {
               model fills it with its own generic patterns.
             </p>
             <p>
+              for a longer version of this framing -- what LLMs actually are,
+              how context windows work, and why this matters for any kind of
+              text production -- see{" "}
+              <a href="/">the map is not the territory</a> (the homepage of
+              this atlas).
+            </p>
+            <p>
+              the short version: your context window is about 200,000 tokens
+              long. in a typical interaction, most of that space is filled by
+              the model&apos;s own output. a small prompt in a large window is
+              &quot;weak and wobbly&quot; -- the model drifts, hallucinates,
+              ignores your instructions:
+            </p>
+            <pre>
+              <code>{`a bare prompt:
+┌──────────────────────────────────────────────────────┐
+│▓▓▓▓▓│░░│▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒│  the model guesses
+│ sys  │user │              AI output              │  about everything
+└──────────────────────────────────────────────────────┘
+
+rich context:
+┌──────────────────────────────────────────────────────┐
+│▓▓▓▓▓│░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░│▒▒▒▒│  focused, deterministic
+│ sys  │      your context (rich, curated)        │out │  you control the window
+└──────────────────────────────────────────────────────┘
+  ░ = context you wrote or approved
+  ▒ = small, specific AI output`}</code>
+            </pre>
+            <p>
               the fix is to reverse the ratio. instead of a small input and a
               large, uncontrolled output, you provide rich, curated context --
               passages, annotations, constraints you&apos;ve personally vetted
