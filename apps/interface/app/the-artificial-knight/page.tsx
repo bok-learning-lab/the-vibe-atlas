@@ -81,6 +81,7 @@ export default function TheArtificialKnightPage() {
                 <li><a href="#chain-configs" className="text-xs">06 / example chain configurations</a></li>
                 <li><a href="#your-turn" className="text-xs">07 / your turn</a></li>
                 <li><a href="#students" className="text-xs">08 / what the students normally do</a></li>
+                <li><a href="#example" className="text-xs">09 / example: from paper to python</a></li>
               </ol>
             </div>
           </div>
@@ -516,6 +517,44 @@ text ───▶│                                        ├──▶ [build 
                 the learning lives.
               </p>
             </div>
+          </div>
+        </section>
+
+        {/* 09 / example: paper to python */}
+        <section className="mx-auto max-w-3xl px-4 pb-10">
+          <div className="prose">
+            <h2 id="example">09 / example: from paper to python</h2>
+            <p>
+              to make this concrete -- here&apos;s an example of a student
+              drawing a prompt chain on paper to emulate the poetry of frank
+              o&apos;hara:
+            </p>
+          </div>
+          <div className="mt-4 border border-border/30 overflow-hidden">
+            <Image
+              src="/images/student-chain-sketch.png"
+              alt="a student's hand-drawn prompt chain diagram for emulating frank o'hara's poetry"
+              width={1600}
+              height={1200}
+              className="w-full h-auto opacity-85 hover:opacity-100 transition-opacity"
+            />
+          </div>
+          <p className="text-[10px] text-muted-foreground mt-3 tracking-wide italic">
+            a student&apos;s prompt chain sketch for frank o&apos;hara
+          </p>
+          <div className="prose mt-6">
+            <p>
+              and here&apos;s the{" "}
+              <a
+                href="https://colab.research.google.com/drive/1UzLR-2Duh3Vy7th1Mc5g4pMnFtR_gJ4m"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                python notebook
+              </a>{" "}
+              that turns this logic on paper into logic in python -- each step
+              of the chain as a separate cell, ready to run and iterate on.
+            </p>
           </div>
         </section>
       </main>
