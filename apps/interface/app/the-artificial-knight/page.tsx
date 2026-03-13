@@ -91,9 +91,16 @@ export default function TheArtificialKnightPage() {
             <p>
               at the most basic level, an LLM takes a string of text in and
               produces a string of text out. that&apos;s the whole thing.
-              prompting is just really good, clear communication -- and the
-              quality of the output depends almost entirely on the quality and
-              specificity of the input.
+              &quot;good context engineering means finding the smallest
+              possible set of high-signal tokens that maximize the likelihood
+              of some desired outcome.&quot; --{" "}
+              <a
+                href="https://www.anthropic.com/engineering/building-effective-agents"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                anthropic, &quot;building effective agents&quot;
+              </a>
             </p>
             <p>
               the problem with a bare prompt (&quot;write me a calvino
