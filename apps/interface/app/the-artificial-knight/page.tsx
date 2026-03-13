@@ -30,33 +30,26 @@ export default function TheArtificialKnightPage() {
           </div>
         </section>
 
-        {/* intro */}
+        {/* 00 / premise */}
         <section className="mx-auto max-w-3xl px-4 pt-12 pb-8">
           <div className="prose">
             <h2 id="premise">00 / the premise</h2>
             <p>
               this page is a condensed version of a workshop on prompt chaining
               and context engineering originally designed for a comparative
-              literature course.{" "}
+              literature course (
               <a
                 href="https://complit126x-lovesongs.vercel.app/reading/prompt-chaining-guide"
                 target="_blank"
                 rel="noopener noreferrer"
               >
-                full view available here
+                full workshop available here
               </a>
-              . the core idea: instead of asking an LLM to produce text in one
-              shot, you design a sequence of operations -- each one doing one
-              focused thing, each one passing something to the next.
-            </p>
-            <p>
-              the original workshop asks students to capture the voice of a
+              ). the original workshop asks students to capture the voice of a
               poet. here, we&apos;re adapting it for calvino -- and for a
               specific goal: the final project asks students to write the lost
               sixth memo from calvino&apos;s{" "}
-              <em>six memos for the next millennium</em>. prompt chaining is a
-              method for approaching that problem with precision.
-              here&apos;s the{" "}
+              <em>six memos for the next millennium</em>. here&apos;s the{" "}
               <a
                 href="https://hackmd.io/IaeJhBDpRnWDkmGxJnoAoQ?view"
                 target="_blank"
@@ -66,59 +59,74 @@ export default function TheArtificialKnightPage() {
               </a>
               .
             </p>
+            <p>
+              the page moves in order: what prompting is, what context
+              engineering is, what a prompt chain is, and then how to apply all
+              three to calvino. for a longer version of the first two sections,
+              see{" "}
+              <a href="/">the map is not the territory</a> (the homepage of
+              this atlas).
+            </p>
             <div className="mt-6 border border-border/30 p-5">
               <p className="text-[10px] tracking-[0.2em] uppercase text-muted-foreground mb-3">
                 on this page
               </p>
               <ol className="space-y-1.5 list-none pl-0">
                 <li><a href="#premise" className="text-xs">00 / the premise</a></li>
-                <li><a href="#string-in-string-out" className="text-xs">01 / string in, string out</a></li>
-                <li><a href="#prompt-chaining" className="text-xs">02 / the method: prompt chaining</a></li>
-                <li><a href="#calvino-method" className="text-xs">03 / your calvino method</a></li>
-                <li><a href="#mechanics" className="text-xs">04 / a bank of mechanics</a></li>
-                <li><a href="#chain-configs" className="text-xs">05 / example chain configurations</a></li>
-                <li><a href="#your-turn" className="text-xs">06 / your turn</a></li>
-                <li><a href="#students" className="text-xs">07 / what the students normally do</a></li>
+                <li><a href="#prompting" className="text-xs">01 / prompting: string in, string out</a></li>
+                <li><a href="#context-engineering" className="text-xs">02 / context engineering</a></li>
+                <li><a href="#prompt-chaining" className="text-xs">03 / prompt chaining</a></li>
+                <li><a href="#calvino-method" className="text-xs">04 / your calvino method</a></li>
+                <li><a href="#mechanics" className="text-xs">05 / a bank of mechanics</a></li>
+                <li><a href="#chain-configs" className="text-xs">06 / example chain configurations</a></li>
+                <li><a href="#your-turn" className="text-xs">07 / your turn</a></li>
+                <li><a href="#students" className="text-xs">08 / what the students normally do</a></li>
               </ol>
             </div>
           </div>
         </section>
 
-        {/* the core concept */}
+        {/* 01 / prompting */}
         <section className="mx-auto max-w-3xl px-4 pb-8">
           <div className="prose">
-            <h2 id="string-in-string-out">01 / string in, string out</h2>
+            <h2 id="prompting">01 / prompting: string in, string out</h2>
             <p>
-              at the most basic level, an LLM takes a string of text in and
-              produces a string of text out. that&apos;s the whole thing.
-              &quot;good context engineering means finding the smallest
-              possible set of high-signal tokens that maximize the likelihood
-              of some desired outcome.&quot; --{" "}
-              <a
-                href="https://www.anthropic.com/engineering/building-effective-agents"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                anthropic, &quot;building effective agents&quot;
-              </a>
+              at the most basic level, a large language model (LLM) takes a
+              string of text in and produces a string of text out. your prompt
+              is the input string. the model&apos;s response is the output
+              string. that&apos;s the whole thing.
             </p>
             <p>
-              the problem with a bare prompt (&quot;write me a calvino
-              memo&quot;) is that the model has to guess about everything: tone,
-              structure, the specific way calvino builds an argument, the
-              interplay of examples. the context window is mostly empty, so the
-              model fills it with its own generic patterns.
+              what makes a good prompt? clarity and specificity. the more
+              precisely you describe what you want -- the tone, the structure,
+              the constraints -- the less the model has to guess. a bare prompt
+              like &quot;write me a calvino memo&quot; gives the model almost
+              nothing to work with. it will produce something in the right
+              general register, but it will guess about everything specific:
+              calvino&apos;s use of opposites, his layered structure, the
+              precision of his imagery.
             </p>
             <p>
-              for a longer version of this framing -- what LLMs actually are,
-              how context windows work, and why this matters for any kind of
-              text production -- see{" "}
-              <a href="/">the map is not the territory</a> (the homepage of
-              this atlas).
+              the problem isn&apos;t that the model is bad. the problem is that
+              a short prompt in a large context window leaves the model to fill
+              most of the space with its own generic patterns.
+            </p>
+          </div>
+        </section>
+
+        {/* 02 / context engineering */}
+        <section className="mx-auto max-w-3xl px-4 pb-8">
+          <div className="prose">
+            <h2 id="context-engineering">02 / context engineering</h2>
+            <p>
+              every LLM has a <strong>context window</strong> -- the total
+              amount of text it can hold at once (roughly 200,000 tokens, about
+              the length of a novel). everything in that window -- your prompt,
+              the model&apos;s prior responses, any documents you paste in --
+              shapes what the model produces next.
             </p>
             <p>
-              the short version: your context window is about 200,000 tokens
-              long. in a typical interaction, most of that space is filled by
+              in a typical chat interaction, most of that space gets filled by
               the model&apos;s own output. a small prompt in a large window is
               &quot;weak and wobbly&quot; -- the model drifts, hallucinates,
               ignores your instructions:
@@ -140,33 +148,65 @@ rich context:
             </pre>
             <p>
               the fix is to reverse the ratio. instead of a small input and a
-              large, uncontrolled output, you provide rich, curated context --
-              passages, annotations, constraints you&apos;ve personally vetted
-              -- and ask the model to produce something small and specific.
-              that reversal is <strong>context engineering</strong>.
+              large, uncontrolled output, you fill the window with rich, curated
+              context -- passages, annotations, constraints you&apos;ve
+              personally vetted -- and ask the model to produce something small
+              and specific. that reversal is <strong>context
+              engineering</strong>:
+            </p>
+            <blockquote>
+              &quot;good context engineering means finding the smallest possible
+              set of high-signal tokens that maximize the likelihood of some
+              desired outcome.&quot; --{" "}
+              <a
+                href="https://www.anthropic.com/engineering/building-effective-agents"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                anthropic, &quot;building effective agents&quot;
+              </a>
+            </blockquote>
+            <p>
+              the more context you provide that you know is strong and that
+              you&apos;ve personally vetted, the more deterministic and specific
+              the output becomes.
             </p>
           </div>
         </section>
 
-        {/* the method */}
+        {/* 03 / prompt chaining */}
         <section className="mx-auto max-w-3xl px-4 pb-8">
           <div className="prose">
-            <h2 id="prompt-chaining">02 / the method: prompt chaining</h2>
+            <h2 id="prompt-chaining">03 / prompt chaining</h2>
             <p>
-              when you click &quot;deep think&quot; in a chat window, the model
-              breaks your task into subtasks behind the scenes -- but you
-              don&apos;t control any of those intermediate decisions. prompt
-              chaining takes that agency back. you design the sequence of
-              operations yourself. each step is atomic, focused, and feeds into
-              the next.
+              context engineering tells you <em>what</em> to do: fill the window
+              with high-signal context. <strong>prompt chaining</strong> tells
+              you <em>how</em>: instead of building all that context by hand,
+              you design a sequence of operations where each step automatically
+              produces context for the next.
             </p>
             <p>
-              the workshop walks through this in stages:
+              each step in the chain is a separate call to the model, doing one
+              focused thing. step 1 might extract key phrases from a text. step
+              2 might score those phrases. step 3 might use both outputs as
+              context to generate new text. the output of each step becomes the
+              input for the next -- automatically building up a rich, curated
+              context window without you having to paste everything in by hand.
+            </p>
+            <pre>
+              <code>{`text ──▶ [extract] ──▶ key phrases ──┐
+text ──▶ [score]   ──▶ trait values  ─┤
+          [annotate: you]             ─┼──▶ [build context] ──▶ [generate] ──▶ draft
+          ... repeat for 3+ texts    ─┘`}</code>
+            </pre>
+            <p>
+              the workshop walks through how to discover the right steps for
+              your specific task:
             </p>
             <ol>
               <li>
                 <strong>one-shot it.</strong> ask the model to write a calvino
-                memo. look at what comes back. it will probably be in the right
+                memo. look at what comes back -- it will probably be in the right
                 register but wrong in the details.
               </li>
               <li>
@@ -176,7 +216,7 @@ rich context:
               <li>
                 <strong>dialogue.</strong> have a back-and-forth. when the model
                 nails something because of how you prompted it, note that
-                instruction -- it could become a step.
+                instruction -- it could become a step in your chain.
               </li>
               <li>
                 <strong>identify atomic mechanics.</strong> each success becomes
@@ -198,14 +238,14 @@ rich context:
           </div>
         </section>
 
-        {/* calvino-specific: opposites */}
+        {/* 04 / calvino method */}
         <section className="mx-auto max-w-3xl px-4 pb-8">
           <div className="prose">
-            <h2 id="calvino-method">03 / your calvino method</h2>
+            <h2 id="calvino-method">04 / your calvino method</h2>
             <p>
-              here&apos;s the core question: how would you break down
-              your &quot;calvino method&quot; into a chain of atomic, discrete
-              steps? and how would you chain them together? would you loop them?
+              now the question becomes specific: how would you break down your
+              &quot;calvino method&quot; into a chain of atomic, discrete steps?
+              how would you chain them together? would you loop them?
             </p>
             <p>
               start by picking a corpus. something short and discrete from
@@ -258,30 +298,26 @@ rich context:
           </div>
         </section>
 
-        {/* talk notes image -- sidebar style */}
+        {/* talk notes image -- full width */}
         <section className="mx-auto max-w-3xl px-4 pb-10">
-          <div className="flex justify-end">
-            <div className="w-full max-w-[280px]">
-              <div className="border border-border/30 overflow-hidden">
-                <Image
-                  src="/images/calvino-talk-notes.jpg"
-                  alt="handwritten notes from the italian studies department talk on calvino"
-                  width={560}
-                  height={800}
-                  className="w-full h-auto opacity-85 hover:opacity-100 transition-opacity"
-                />
-              </div>
-              <p className="text-[10px] text-muted-foreground mt-3 tracking-wide italic">
-                mw&apos;s notes from the 20260309 talk
-              </p>
-            </div>
+          <div className="border border-border/30 overflow-hidden">
+            <Image
+              src="/images/calvino-talk-notes.jpg"
+              alt="handwritten notes from the italian studies department talk on calvino"
+              width={1120}
+              height={1600}
+              className="w-full h-auto opacity-85 hover:opacity-100 transition-opacity"
+            />
           </div>
+          <p className="text-[10px] text-muted-foreground mt-3 tracking-wide italic">
+            mw&apos;s notes from the 20260309 talk
+          </p>
         </section>
 
-        {/* bank of operations */}
+        {/* 05 / bank of mechanics */}
         <section className="mx-auto max-w-3xl px-4 pb-8">
           <div className="prose">
-            <h2 id="mechanics">04 / a bank of mechanics</h2>
+            <h2 id="mechanics">05 / a bank of mechanics</h2>
             <p>
               every step in a chain is one of a small number of atomic
               operations. these are not the only operations -- invent your own --
@@ -361,10 +397,10 @@ rich context:
           </div>
         </section>
 
-        {/* example chain configs */}
+        {/* 06 / example chain configs */}
         <section className="mx-auto max-w-3xl px-4 pb-8">
           <div className="prose">
-            <h2 id="chain-configs">05 / example chain configurations</h2>
+            <h2 id="chain-configs">06 / example chain configurations</h2>
             <p>
               these are all built from the same operations above -- just
               assembled differently:
@@ -399,10 +435,10 @@ text ───▶│                                        ├──▶ [build 
           </div>
         </section>
 
-        {/* the ask */}
+        {/* 07 / your turn */}
         <section className="mx-auto max-w-3xl px-4 pb-8">
           <div className="prose">
-            <h2 id="your-turn">06 / your turn</h2>
+            <h2 id="your-turn">07 / your turn</h2>
             <p>
               here is the exercise:
             </p>
@@ -445,11 +481,11 @@ text ───▶│                                        ├──▶ [build 
           </div>
         </section>
 
-        {/* student version note */}
+        {/* 08 / student version note */}
         <section className="mx-auto max-w-3xl px-4 pb-24">
           <div className="border border-border/30 border-dashed p-6">
             <div className="prose">
-              <h2 id="students">07 / what the students normally do</h2>
+              <h2 id="students">08 / what the students normally do</h2>
               <p>
                 in the full course version, students do this themselves: they
                 design the chain, translate it into code (with support), iterate
