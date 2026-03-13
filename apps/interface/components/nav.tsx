@@ -9,6 +9,7 @@ const links = [
   { href: "/atlas", label: "the atlas" },
   { href: "/cartographers-log", label: "the cartographer's log" },
   { href: "/scholars-tools", label: "the scholar's tools" },
+  { href: "/the-artificial-knight", label: "the artificial knight" },
 ];
 
 export function Nav() {
