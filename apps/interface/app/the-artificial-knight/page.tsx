@@ -56,6 +56,15 @@ export default function TheArtificialKnightPage() {
               sixth memo from calvino&apos;s{" "}
               <em>six memos for the next millennium</em>. prompt chaining is a
               method for approaching that problem with precision.
+              here&apos;s the{" "}
+              <a
+                href="https://hackmd.io/IaeJhBDpRnWDkmGxJnoAoQ?view"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                workshop plan for jeffrey&apos;s course
+              </a>
+              .
             </p>
             <div className="mt-6 border border-border/30 p-5">
               <p className="text-[10px] tracking-[0.2em] uppercase text-muted-foreground mb-3">
