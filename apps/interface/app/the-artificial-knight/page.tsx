@@ -33,7 +33,7 @@ export default function TheArtificialKnightPage() {
         {/* intro */}
         <section className="mx-auto max-w-3xl px-4 pt-12 pb-8">
           <div className="prose">
-            <h2>00 / the premise</h2>
+            <h2 id="premise">00 / the premise</h2>
             <p>
               this page is a condensed version of a workshop on prompt chaining
               and context engineering originally designed for a comparative
@@ -57,13 +57,28 @@ export default function TheArtificialKnightPage() {
               <em>six memos for the next millennium</em>. prompt chaining is a
               method for approaching that problem with precision.
             </p>
+            <div className="mt-6 border border-border/30 p-5">
+              <p className="text-[10px] tracking-[0.2em] uppercase text-muted-foreground mb-3">
+                on this page
+              </p>
+              <ol className="space-y-1.5 list-none pl-0">
+                <li><a href="#premise" className="text-xs">00 / the premise</a></li>
+                <li><a href="#string-in-string-out" className="text-xs">01 / string in, string out</a></li>
+                <li><a href="#prompt-chaining" className="text-xs">02 / the method: prompt chaining</a></li>
+                <li><a href="#calvino-method" className="text-xs">03 / your calvino method</a></li>
+                <li><a href="#mechanics" className="text-xs">04 / a bank of mechanics</a></li>
+                <li><a href="#chain-configs" className="text-xs">05 / example chain configurations</a></li>
+                <li><a href="#your-turn" className="text-xs">06 / your turn</a></li>
+                <li><a href="#students" className="text-xs">07 / what the students normally do</a></li>
+              </ol>
+            </div>
           </div>
         </section>
 
         {/* the core concept */}
         <section className="mx-auto max-w-3xl px-4 pb-8">
           <div className="prose">
-            <h2>01 / string in, string out</h2>
+            <h2 id="string-in-string-out">01 / string in, string out</h2>
             <p>
               at the most basic level, an LLM takes a string of text in and
               produces a string of text out. that&apos;s the whole thing.
@@ -120,7 +135,7 @@ rich context:
         {/* the method */}
         <section className="mx-auto max-w-3xl px-4 pb-8">
           <div className="prose">
-            <h2>02 / the method: prompt chaining</h2>
+            <h2 id="prompt-chaining">02 / the method: prompt chaining</h2>
             <p>
               when you click &quot;deep think&quot; in a chat window, the model
               breaks your task into subtasks behind the scenes -- but you
@@ -170,7 +185,7 @@ rich context:
         {/* calvino-specific: opposites */}
         <section className="mx-auto max-w-3xl px-4 pb-8">
           <div className="prose">
-            <h2>03 / your calvino method</h2>
+            <h2 id="calvino-method">03 / your calvino method</h2>
             <p>
               here&apos;s the core question: how would you break down
               your &quot;calvino method&quot; into a chain of atomic, discrete
@@ -250,7 +265,7 @@ rich context:
         {/* bank of operations */}
         <section className="mx-auto max-w-3xl px-4 pb-8">
           <div className="prose">
-            <h2>04 / a bank of mechanics</h2>
+            <h2 id="mechanics">04 / a bank of mechanics</h2>
             <p>
               every step in a chain is one of a small number of atomic
               operations. these are not the only operations -- invent your own --
@@ -333,7 +348,7 @@ rich context:
         {/* example chain configs */}
         <section className="mx-auto max-w-3xl px-4 pb-8">
           <div className="prose">
-            <h2>05 / example chain configurations</h2>
+            <h2 id="chain-configs">05 / example chain configurations</h2>
             <p>
               these are all built from the same operations above -- just
               assembled differently:
@@ -371,7 +386,7 @@ text ───▶│                                        ├──▶ [build 
         {/* the ask */}
         <section className="mx-auto max-w-3xl px-4 pb-8">
           <div className="prose">
-            <h2>06 / your turn</h2>
+            <h2 id="your-turn">06 / your turn</h2>
             <p>
               here is the exercise:
             </p>
@@ -418,7 +433,7 @@ text ───▶│                                        ├──▶ [build 
         <section className="mx-auto max-w-3xl px-4 pb-24">
           <div className="border border-border/30 border-dashed p-6">
             <div className="prose">
-              <h2>07 / what the students normally do</h2>
+              <h2 id="students">07 / what the students normally do</h2>
               <p>
                 in the full course version, students do this themselves: they
                 design the chain, translate it into code (with support), iterate
